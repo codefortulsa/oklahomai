@@ -21,7 +21,7 @@ Then navigate to `http://localhost:8000` in your browser.
 
 * ### 🔗 Method 3: GitHub Pages
 Since this repository is published to GitHub, these slides can also be viewed at:
-`https://yourusername.github.io/yourrepo/Intro Sessions/Session 1/index.html`
+[https://kaizengrowth.github.io/oklahomai](https://kaizengrowth.github.io/oklahomai)
 
 
 ## 🎮 3. Using the Presentation
