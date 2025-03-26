@@ -390,6 +390,34 @@
         </div>
       </section>
 
+      <section>
+        <h2>Model Evaluation in Production</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="fragment fade-in">Metrics to Consider</h3>
+            <ul>
+              <li class="fragment fade-up">Accuracy/quality of outputs</li>
+              <li class="fragment fade-up">Latency and throughput</li>
+              <li class="fragment fade-up">Cost per inference</li>
+              <li class="fragment fade-up">Hallucination rate</li>
+              <li class="fragment fade-up">Ethical considerations</li>
+              <li class="fragment fade-up">User satisfaction</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3 class="fragment fade-in">Monitoring Tools</h3>
+            <ul>
+              <li class="fragment fade-up">CloudWatch metrics</li>
+              <li class="fragment fade-up">Custom dashboards</li>
+              <li class="fragment fade-up">A/B testing</li>
+              <li class="fragment fade-up">User feedback loops</li>
+              <li class="fragment fade-up">Regression testing</li>
+              <li class="fragment fade-up">Prompt evaluation frameworks</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- SLIDE 4: UNIQUE CHALLENGES -->
       <section>
         <h2>Unique Challenges</h2>
@@ -424,11 +452,13 @@
       </section>
 
       <!-- SLIDE 5: HANDS-ON INTRO -->
-      <section data-background-color="#f5f5f5">
-        <h2>Hands-on Session: Deploying a Tiny LLM</h2>
+      <section>
+        <h3>Hands-on Activity</h3>
+        <h2>Deploying a Tiny LLM</h2>
         <div class="fragment fade-in">
-          <p>Today we'll deploy <span class="highlight">Qwen2.5</span>, a powerful yet efficient language model</p>
-          <p>We'll use:</p>
+          <p>We'll deploy <span class="highlight">Qwen2.5</span>, a small but efficient LLM.</p>
+          <br>
+          <p>Using:</p>
           <ul>
             <li>AWS EC2 (Free Tier)</li>
             <li>Ollama - Open source tool for running models locally</li>
@@ -437,246 +467,49 @@
         </div>
       </section>
 
-      <!-- SLIDE 6: QWEN2.5 DETAILS -->
-      <section>
-        <h2>Qwen2.5 on EC2 with Ollama</h2>
-        <div class="two-columns">
-          <div class="column">
-            <h3 class="fragment fade-in">What You'll Learn</h3>
-            <ul>
-              <li class="fragment fade-up">Setting up an EC2 instance (Free Tier)</li>
-              <li class="fragment fade-up">Installing Ollama</li>
-              <li class="fragment fade-up">Deploying Qwen2.5 model</li>
-              <li class="fragment fade-up">Testing your model</li>
-              <li class="fragment fade-up">Basic prompt engineering</li>
-            </ul>
-          </div>
-          <div class="column fragment fade-in">
-            <pre><code class="bash" data-trim data-noescape>
-# Install Ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Pull the Qwen2.5 model
-ollama pull qwen2:7b
-
-# Run the model
-ollama run qwen2:7b
-            </code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 7: EC2 SETUP -->
-      <section>
-        <h2>Step 1: Setting Up EC2</h2>
-        <ol>
-          <li class="fragment fade-up">Log in to AWS Console and navigate to EC2</li>
-          <li class="fragment fade-up">Launch a new instance (t2.large recommended)</li>
-          <li class="fragment fade-up">Select Ubuntu 22.04 LTS as your AMI</li>
-          <li class="fragment fade-up">Configure security group to allow SSH access</li>
-          <li class="fragment fade-up">Create or use an existing key pair</li>
-          <li class="fragment fade-up">Launch instance and connect via SSH</li>
-        </ol>
-        <div class="fragment fade-in">
-          <pre><code class="bash" data-trim data-noescape>
-ssh -i your-key.pem ubuntu@your-instance-public-ip
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- SLIDE 8: OLLAMA INSTALLATION -->
-      <section>
-        <h2>Step 2: Installing Ollama</h2>
-        <div class="fragment fade-in">
-          <pre><code class="bash" data-trim data-noescape>
-# Update system packages
-sudo apt update && sudo apt upgrade -y
-
-# Install dependencies
-sudo apt install -y curl
-
-# Install Ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Verify installation
-ollama --version
-          </code></pre>
-        </div>
-        <p class="fragment fade-in">Ollama provides a simple API and CLI for running LLMs locally</p>
-      </section>
-
-      <!-- SLIDE 9: DEPLOYING QWEN -->
-      <section>
-        <h2>Step 3: Deploying Qwen2.5</h2>
-        <div class="fragment fade-in">
-          <pre><code class="bash" data-trim data-noescape>
-# Pull the Qwen2.5 model (7B parameter version)
-ollama pull qwen2:7b
-
-# This will download ~4GB of data, be patient!
-          </code></pre>
-        </div>
-        <div class="fragment fade-in">
-          <h3>About Qwen2.5</h3>
-          <ul>
-            <li>Developed by Alibaba Cloud</li>
-            <li>7B parameters (compact yet powerful)</li>
-            <li>Good performance-to-size ratio</li>
-            <li>Supports multiple languages</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- SLIDE 10: INTERACTING WITH MODEL -->
-      <section>
-        <h2>Step 4: Interacting with the Model</h2>
-        <div class="fragment fade-in">
-          <pre><code class="bash" data-trim data-noescape>
-# Start a chat session with the model
-ollama run qwen2:7b
-
-# Try these prompts:
-> Explain the concept of transfer learning in AI
-> Write a short poem about Tulsa
-> How would you implement a recommendation system?
-          </code></pre>
-        </div>
-        <div class="fragment fade-in">
-          <p>You can also use the Ollama API to integrate with applications:</p>
-          <pre><code class="bash" data-trim data-noescape>
-# Start the Ollama server
-ollama serve
-
-# In another terminal, use curl to query the API
-curl -X POST http://localhost:11434/api/generate -d '{
-  "model": "qwen2:7b",
-  "prompt": "What is machine learning?"
-}'
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- SLIDE 11: AI MODEL TERMINOLOGY -->
-      <section>
-        <h2>AI Model Terminology</h2>
-        <table class="fragment fade-in">
-          <tr>
-            <th>Term</th>
-            <th>Definition</th>
-          </tr>
-          <tr class="fragment fade-up">
-            <td><strong>LLM</strong></td>
-            <td>Large Language Model, a type of AI model trained on vast text data</td>
-          </tr>
-          <tr class="fragment fade-up">
-            <td><strong>Inference</strong></td>
-            <td>Process of using a trained model to make predictions</td>
-          </tr>
-          <tr class="fragment fade-up">
-            <td><strong>Token</strong></td>
-            <td>Basic unit of text processing in LLMs (word parts or characters)</td>
-          </tr>
-          <tr class="fragment fade-up">
-            <td><strong>Quantization</strong></td>
-            <td>Process of reducing model precision to improve performance</td>
-          </tr>
-          <tr class="fragment fade-up">
-            <td><strong>Context Window</strong></td>
-            <td>The amount of text a model can consider at once</td>
-          </tr>
-          <tr class="fragment fade-up">
-            <td><strong>Fine-tuning</strong></td>
-            <td>Adapting a pre-trained model for specific tasks</td>
-          </tr>
-        </table>
-      </section>
-
-      <!-- SLIDE 12: MODEL EVALUATION -->
-      <section>
-        <h2>Model Evaluation in Production</h2>
-        <div class="two-columns">
-          <div class="column">
-            <h3 class="fragment fade-in">Metrics to Consider</h3>
-            <ul>
-              <li class="fragment fade-up">Accuracy/quality of outputs</li>
-              <li class="fragment fade-up">Latency and throughput</li>
-              <li class="fragment fade-up">Cost per inference</li>
-              <li class="fragment fade-up">Hallucination rate</li>
-              <li class="fragment fade-up">Ethical considerations</li>
-              <li class="fragment fade-up">User satisfaction</li>
-            </ul>
-          </div>
-          <div class="column">
-            <h3 class="fragment fade-in">Monitoring Tools</h3>
-            <ul>
-              <li class="fragment fade-up">CloudWatch metrics</li>
-              <li class="fragment fade-up">Custom dashboards</li>
-              <li class="fragment fade-up">A/B testing</li>
-              <li class="fragment fade-up">User feedback loops</li>
-              <li class="fragment fade-up">Regression testing</li>
-              <li class="fragment fade-up">Prompt evaluation frameworks</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 13: ARCHITECTURE OVERVIEW -->
-      <section data-transition="zoom">
-        <h2>Architecture Overview</h2>
-        <div class="fragment fade-in" style="text-align: center; margin-top: 30px;">
-          <img src="https://placeholder.pics/svg/800x400/DEDEDE/555555/AI%20Application%20Architecture" alt="Architecture Diagram">
-          <p class="caption">Simple AI Application Architecture with EC2 and Ollama</p>
-        </div>
-        <div class="fragment fade-in">
-          <pre><code class="text" data-trim data-noescape>
-User → API Gateway → Lambda → EC2 with Ollama → S3 Storage
-          </code></pre>
-        </div>
-      </section>
-
-      <!-- SLIDE 14: WORKSHOP TIME -->
-      <section data-background="#6a2ea0" data-background-transition="zoom">
-        <h1 style="color: white;">Workshop Time!</h1>
-        <p style="color: white; font-size: 1.5em;">Let's deploy our first AI model together</p>
-        <div class="fragment fade-in" style="margin-top: 50px; color: white;">
-          <p>Follow along with the instructor</p>
-          <p>Ask questions at any time</p>
-          <p>Collaborate with your neighbors</p>
-        </div>
-      </section>
 
       <!-- SLIDE 15: RESOURCES -->
       <section>
-        <h2>Resources & Next Steps</h2>
+        <h2>Next Steps</h2>
         <div class="two-columns">
           <div class="column">
             <h3 class="fragment fade-in">Resources</h3>
             <ul>
-              <li class="fragment fade-up"><a href="https://ollama.com/docs" target="_blank">Ollama Documentation</a></li>
-              <li class="fragment fade-up"><a href="https://docs.aws.amazon.com/ec2/" target="_blank">AWS EC2 Documentation</a></li>
-              <li class="fragment fade-up"><a href="https://huggingface.co/Qwen/Qwen2-7B" target="_blank">Qwen2 Model Card</a></li>
-              <li class="fragment fade-up"><a href="https://huggingface.co/docs/evaluate/llm_evaluation" target="_blank">LLM Evaluation Guide</a></li>
+               <li class="fragment fade-up" style="font-size: 0.8em; margin-bottom: 3px;"><a href="https://huyenchip.com/books/" target="_blank">Chip Huyen's "AI Engineering" and "Designing Machine Learning Systems"</a></li>
+            <li class="fragment fade-up" style="font-size: 0.8em; margin-bottom: 3px;"><a href="https://ollama.com/docs" target="_blank">Ollama Documentation</a></li>
+              <li class="fragment fade-up" style="font-size: 0.8em; margin-bottom: 3px;"><a href="https://huggingface.co/Qwen/Qwen2-7B" target="_blank">Qwen2 Model Card</a></li>
+              <li class="fragment fade-up" style="font-size: 0.8em; margin-bottom: 3px;"><a href="https://huggingface.co/docs/evaluate/llm_evaluation" target="_blank">LLM Evaluation Guide</a></li>
+              <li class="fragment fade-up" style="font-size: 0.8em; margin-bottom: 3px;"><a href="https://www.geeksforgeeks.org/aws-certified-ai-practitioner-aif-c01/" target="_blank">AWS Certified AI Practitioner (AIF-C01) Guide</a></li>
             </ul>
           </div>
           <div class="column">
-            <h3 class="fragment fade-in">Coming in Session 2</h3>
-            <ul>
-              <li class="fragment fade-up">AWS Bedrock for simplified AI orchestration</li>
-              <li class="fragment fade-up">Edge AI deployment on Raspberry Pi</li>
-              <li class="fragment fade-up">Environmental sensor integration</li>
-              <li class="fragment fade-up">RAG patterns for knowledge augmentation</li>
+            <div class="fragment fade-in" style="text-align: center; margin-bottom: 15px;">
+              <img src="../../assets/images/AI_Engineering_ChipHuyen.jpg" alt="Chip Huyen's AI Engineering Book" style="width: 80%; max-width: 180px;">
+            </div>
+            <h4 class="fragment fade-in">Coming in Session 2</h4>
+            <ul style="font-size: 0.7em; line-height: 1.1;">
+              <li class="fragment fade-up" style="margin-bottom: 2px;">AWS Bedrock for simplified AI orchestration</li>
+              <li class="fragment fade-up" style="margin-bottom: 2px;">Edge AI deployment on Raspberry Pi</li>
+              <li class="fragment fade-up" style="margin-bottom: 2px;">Environmental sensor integration</li>
+              <li class="fragment fade-up" style="margin-bottom: 2px;">RAG patterns for knowledge augmentation</li>
             </ul>
           </div>
         </div>
       </section>
 
       <!-- SLIDE 16: THANK YOU -->
-      <section data-background-gradient="linear-gradient(to bottom, #6a2ea0, #9d71c7)">
-        <h1 style="color: white;">Thank You!</h1>
-        <div style="color: white; margin-top: 40px;">
-          <p class="fragment fade-in">Questions? Let's discuss!</p>
-          <p class="fragment fade-in">Join us on the #oklahom-ai channel on Slack</p>
-          <p class="fragment fade-in" style="margin-top: 60px;">See you at Session 2!</p>
+      <section>
+        <h1>Thank You!</h1>
+        <div class="two-columns" style="margin-top: 20px;">
+          <div class="column">
+            <p class="fragment fade-in">Questions? Project ideas? Let's discuss!</p>
+            <p class="fragment fade-in">Join us on <a href="https://techlahoma.org" target="_blank">#techlahoma</a> Slack</p>
+            <br><br>
+            <p class="fragment fade-in" style="margin-top: 40px; color: var(--accent-color);">See you at Session 2!</p>
+          </div>
+          <div class="column fragment fade-in" style="display: flex; justify-content: center; align-items: center;">
+            <img src="../../assets/images/Tulsa AI Learning Lab logo.png" alt="Tulsa AI Learning Lab Logo" style="height: 400px; max-width: 100%;">
+          </div>
         </div>
       </section>
 
