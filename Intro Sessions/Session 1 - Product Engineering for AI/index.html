@@ -208,7 +208,7 @@
                 <li class="fragment fade-in">Basic concepts: Generative AI and LLMs</li>
                 <li class="fragment fade-in">Evolving role of software engineers</li>
                 <li class="fragment fade-in">AI Product Development Lifecycle</li>
-                <li class="fragment fade-in">Evaluating AI models in production</li>
+                <li class="fragment fade-in">System Architecture: RAG Pipeline with Agents</li>
             </ul>
           </li>
           <br>
@@ -294,6 +294,45 @@
     </section>
 
      <section>
+        <h2>Opportunities in A.I.</h2>
+        <div class="two-columns">
+            <div class="column">
+                <h3 style="font-size: 0.8em; margin-bottom: 6px;" class="fragment fade-in">Industries Being Transformed</h3>
+                <ul style="font-size: 0.65em; line-height: 1.1; margin-top: 0;">
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🏥 <span style="color: var(--accent-color);">Healthcare:</span> diagnostics, drug discovery, patient care</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🏦 <span style="color: var(--accent-color);">Finance:</span> risk assessment, fraud detection, investments</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🏭 <span style="color: var(--accent-color);">Manufacturing:</span> predictive maintenance, quality control</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🚚 <span style="color: var(--accent-color);">Logistics:</span> route optimization, inventory management</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🛍️ <span style="color: var(--accent-color);">Retail:</span> personalization, demand forecasting</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🏢 <span style="color: var(--accent-color);">Real Estate:</span> valuation, market analysis</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">👩‍⚖️ <span style="color: var(--accent-color);">Legal:</span> document analysis, compliance monitoring</li>
+                    <li style="margin-bottom: 4px;" class="fragment fade-up">🎓 <span style="color: var(--accent-color);">Education:</span> personalized learning, assessment</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3 style="font-size: 0.8em; margin-bottom: 6px;" class="fragment fade-in">Tulsa</h3>
+                <div style="background-color: rgba(125, 85, 199, 0.2); padding: 5px; border-radius: 4px; margin-bottom: 8px;" class="fragment fade-up">
+                    <p style="font-size: 0.6em; margin: 0;"><span style="color: var(--accent-color); font-weight: bold;">✈️ Aerospace & Defense:</span> Advanced manufacturing, predictive maintenance, autonomous systems, supply chain</p>
+                </div>
+                <div style="background-color: rgba(125, 85, 199, 0.2); padding: 5px; border-radius: 4px; margin-bottom: 8px;" class="fragment fade-up">
+                    <p style="font-size: 0.6em; margin: 0;"><span style="color: var(--accent-color); font-weight: bold;">⛽ Energy:</span> AI for oil & gas optimization, renewable forecasting, smart grid</p>
+                </div>
+                <div style="background-color: rgba(125, 85, 199, 0.2); padding: 5px; border-radius: 4px; margin-bottom: 8px;" class="fragment fade-up">
+                    <p style="font-size: 0.6em; margin: 0;"><span style="color: var(--accent-color); font-weight: bold;">🏭 Real Estate & Retail:</span> Customer service, fraud detection, smart building management</p>
+                </div>
+                <div style="background-color: rgba(125, 85, 199, 0.2); padding: 5px; border-radius: 4px; margin-bottom: 8px;" class="fragment fade-up">
+                    <p style="font-size: 0.6em; margin: 0;"><span style="color: var(--accent-color); font-weight: bold;">🚚 Logistics:</span> Route optimization for central U.S. hub, warehouse automation, data centers</p>
+                </div>
+                <div style="background-color: rgba(125, 85, 199, 0.2); padding: 5px; border-radius: 4px;" class="fragment fade-up">
+                    <p style="font-size: 0.6em; margin: 0;"><span style="color: var(--accent-color); font-weight: bold;">🏛️ GovTech & Philanthropy:</span> Service modernization, data-driven policy, community engagement, participatory AI governance</p>
+                </div>
+                <p style="font-size: 0.6em;" class="caption fragment fade-in">AI is projected to create $15.7 trillion in global economic value by 2030 (PwC)</p>
+            </div>
+        </div>
+        
+    </section>
+
+     <section>
         <h2>Changing Role of Software Engineers</h2>
         <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">🤖 <span style="color: var(--accent-color);">AI Integration:</span> Developing architectures that effectively combine traditional code with AI capabilities while maintaining reliability.</p>
         <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">💡 <span style="color: var(--accent-color);">Product-Focused Engineering:</span> Understanding user needs and business value becomes critical as fewer engineers are needed to build a product.</p>
@@ -309,7 +348,7 @@
         <h2>What is AI Product Engineering?</h2>
         <div class="two-columns">
           <div class="column">
-            <h3 class="fragment fade-in">Key Stages</h3>
+            <h3 class="fragment fade-in" data-fragment-index="2">Key Stages</h3>
             <ul style="font-size: 0.7em;">
               <li class="fragment fade-up">1. <span style="color: var(--accent-color);">User-centered design:</span> problem identification & requirements analysis</li>
               <li class="fragment fade-up">2. <span style="color: var(--accent-color);">Data collection</span> & Preparation</li>
@@ -320,7 +359,7 @@
             </ul>
           </div>
           <div class="column">
-            <div class="fragment fade-in">
+            <div class="fragment fade-in" data-fragment-index="1">
               <img src="../../assets/images/ai_lifecycle.png" alt="AI Product Lifecycle">
               <p class="caption">The AI Development Lifecycle</p>
             </div>
@@ -328,29 +367,58 @@
         </div>
       </section>
 
+      <section>
+        <h2>AI System Architecture</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="fragment fade-in" data-fragment-index="2">Components</h3>
+            <ul style="font-size: 0.6em; line-height: 1.1;">
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="3"><span style="color: var(--accent-color);">Core LLM:</span> Meta Llama 3.1 8B (fine-tuned for summarization)</li>
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="4"><span style="color: var(--accent-color);">Vector DB:</span> MongoDB Vector Search for embeddings & metadata</li>
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="5"><span style="color: var(--accent-color);">Data pipelines:</span> Notion Collector, ETL Crawler, Document DB, Data Registry</li>
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="6"><span style="color: var(--accent-color);">RAG pipeline:</span> Langchain, semantic retrieval at query time</li>
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="7"><span style="color: var(--accent-color);">Agent:</span> HF SmolAgents: retrieval + summarization + synthesis</li>
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="8"><span style="color: var(--accent-color);">Orchestration:</span> ZenML (offline), Gradio, HF endpoints - REST deployments (online)</li>
+              <li style="margin-bottom: 3px;" class="fragment fade-up" data-fragment-index="9"><span style="color: var(--accent-color);">Observability:</span> Opik for prompt monitoring and LLM evaluation</li>
+            </ul>
+          </div>
+          <div class="column">
+            <div class="fragment fade-in" data-fragment-index="1">
+              <img src="../../assets/images/AI_system_architecture.png" alt="AI System Architecture">
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- SLIDE 4: UNIQUE CHALLENGES -->
       <section>
-        <h2>Unique Challenges in AI Product Engineering</h2>
-        <div class="fragment fade-in">
-          <div class="two-columns">
-            <div class="column">
-              <h3>Technical Challenges</h3>
-              <ul>
-                <li>Data quality and availability</li>
-                <li>Model performance and reliability</li>
-                <li>Compute resources and costs</li>
-                <li>Deployment and scaling</li>
-              </ul>
-            </div>
-            <div class="column">
-              <h3>Ethical Challenges</h3>
-              <ul>
-                <li>Bias and fairness</li>
-                <li>Transparency and explainability</li>
-                <li>Privacy concerns</li>
-                <li>Responsible AI usage</li>
-              </ul>
-            </div>
+        <h2>Unique Challenges</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 style="font-size: 0.9em; margin-bottom: 8px;">Technical Challenges</h3>
+            <ul style="font-size: 0.7em; line-height: 1.2;">
+              <li style="margin-bottom: 3px;">Data quality and availability</li>
+              <li style="margin-bottom: 3px;">Model performance and reliability</li>
+              <li style="margin-bottom: 3px;">Compute resources and costs</li>
+              <li style="margin-bottom: 3px;">Deployment and scaling</li>
+              <li style="margin-bottom: 3px;">Data privacy and security</li>
+              <br>
+              <br>
+              <p class="fragment fade-in" style="margin-top: 10px; font-weight: bold; color: var(--accent-color);">Number One challenge...</p>
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Keeping up with the latest models and techniques</li>
+              <li class="fragment fade-in" style="margin-bottom: 3px; font-style: italic; color: var(--secondary-color);">AI is eating the world!</li>
+            </ul>
+          </div>
+          <div class="column fragment fade-in">
+            <h3 style="font-size: 0.9em; margin-bottom: 8px;">Ethical Challenges</h3>
+            <ul style="font-size: 0.7em; line-height: 1.2;">
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Bias and fairness</li>
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Transparency and explainability</li>
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Privacy concerns</li>
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Responsible AI usage & governance: copyright, deepfakes, misinformation</li>
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Workforce displacement</li>
+              <li class="fragment fade-in" style="margin-bottom: 3px;">Environmental impact</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -611,6 +679,8 @@ User → API Gateway → Lambda → EC2 with Ollama → S3 Storage
           <p class="fragment fade-in" style="margin-top: 60px;">See you at Session 2!</p>
         </div>
       </section>
+
+     
 
     </div>
   </div>
