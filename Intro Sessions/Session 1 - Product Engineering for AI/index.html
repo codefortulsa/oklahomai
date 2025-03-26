@@ -7,7 +7,7 @@
   
   <!-- RevealJS CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.min.css" id="theme">
   
   <!-- Highlight.js for code syntax highlighting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.min.css">
@@ -15,32 +15,36 @@
   <!-- Custom styles -->
   <style>
     :root {
-      --primary-color: #336699;
-      --secondary-color: #669933;
-      --background-color: #f8f8f8;
-      --text-color: #333;
+      --primary-color: #4b2e83; /* Dark purple from "TULSA AI" text */
+      --secondary-color: #9d71c7; /* Medium purple from secondary elements */
+      --accent-color: #bb8fcb; /* Light lavender purple from brain circuits */
+      --highlight-color: #7d55c7; /* Medium-dark purple for highlights */
+      --light-purple: #d4bce4; /* Very light purple for subtle backgrounds */
+      --background-color: #121212; /* Dark background */
+      --text-color: #f0f0f0; /* Light text for dark background */
+      --code-background: #2d2d2d; /* Darker background for code */
     }
     
     .reveal {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text-color);
+      background-color: var(--background-color);
     }
     
     .reveal .slides {
       text-align: left;
     }
     
-    .reveal h1, .reveal h2 {
-      color: var(--primary-color);
-      margin-bottom: 0.5em;
-    }
-    
     .reveal h1 {
+      color: var(--highlight-color); /* Using medium-dark purple for H1 */
+      margin-bottom: 0.5em;
       font-size: 2.5em;
       text-transform: none;
     }
     
     .reveal h2 {
+      color: var(--secondary-color); /* Medium purple for H2 */
+      margin-bottom: 0.5em;
       font-size: 1.8em;
       text-transform: none;
     }
@@ -61,14 +65,15 @@
     }
     
     .reveal pre {
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       border-radius: 5px;
+      background-color: var(--code-background);
     }
     
     .reveal code {
       font-family: 'Fira Code', monospace;
       padding: 0.2em 0.4em;
-      background-color: rgba(0,0,0,0.05);
+      background-color: rgba(255,255,255,0.1);
       border-radius: 3px;
     }
     
@@ -89,7 +94,7 @@
     }
     
     .highlight {
-      color: var(--secondary-color);
+      color: var(--accent-color);
       font-weight: bold;
     }
     
@@ -111,13 +116,43 @@
     }
     
     table th {
-      background-color: #f2f2f2;
+      background-color: #2a2a2a;
       font-weight: bold;
     }
     
     table tr:nth-child(even) {
-      background-color: #f9f9f9;
+      background-color: #1e1e1e;
     }
+    
+    /* Links */
+    .reveal a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+    .reveal a:hover {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+    
+    /* Slide backgrounds */
+    section {
+      background-color: var(--background-color);
+    }
+    
+    /* Additional utility classes for colors */
+    .text-primary { color: var(--primary-color); }
+    .text-secondary { color: var(--secondary-color); }
+    .text-accent { color: var(--accent-color); }
+    .text-highlight { color: var(--highlight-color); }
+    .text-light-purple { color: var(--light-purple); }
+    
+    /* Backgrounds */
+    .bg-primary { background-color: var(--primary-color); color: white; }
+    .bg-secondary { background-color: var(--secondary-color); color: white; }
+    .bg-accent { background-color: var(--accent-color); color: white; }
+    .bg-highlight { background-color: var(--highlight-color); color: white; }
+    .bg-light-purple { background-color: var(--light-purple); color: #333; }
   </style>
 </head>
 <body>
@@ -125,23 +160,61 @@
     <div class="slides">
       <!-- SLIDE 1: TITLE -->
       <section data-transition="zoom">
-        <h1>🧠 Product Engineering for AI Applications</h1>
-        <h3>Oklahom.AI - Tulsa's AI Learning Lab</h3>
-        <p><em>Session 1: Introduction to AI Product Engineering</em></p>
-        <div style="margin-top: 2em;">
-          <img src="../../assets/images/Tulsa AI Learning Lab logo.png" alt="Tulsa AI Learning Lab Logo" style="height: 200px;">
+        <h3>Tulsa AI Learning Lab</h3>
+        <p style="margin-top: 2em;" class="fragment fade-in"><em><span style="color: var(--accent-color);">Session 1:</span></em></p>
+        <h1 class="fragment fade-in">Product Engineering for AI</h1>
+        <div style="margin-top: 5em; display: flex; justify-content: center; align-items: center; gap: 20px;" class="fragment fade-in">
+          <img src="../../assets/images/Tulsa AWS User Group.png" alt="Tulsa AWS User Group Logo" style="height: 130px;">
+          <img src="../../assets/images/Tulsa AI Learning Lab logo.png" alt="Tulsa AI Learning Lab Logo" style="height: 130px;">
+          <img src="../../assets/images/techlahoma.png" alt="Techlahoma Logo" style="height: 130px;">
+          <img src="../../assets/images/atlas_school.jpeg" alt="Atlas School Logo" style="height: 130px;">
         </div>
       </section>
 
-      <!-- SLIDE 2: WELCOME -->
+        <!-- SLIDE: INTRODUCTIONS -->
       <section data-transition="slide">
-        <h2>Welcome to Session 1! 👋</h2>
-        <p>Today's Agenda:</p>
-        <ul>
-          <li class="fragment fade-in">Introduction to AI Product Engineering</li>
-          <li class="fragment fade-in">Hands-on: Deploying a tiny LLM (Qwen2.5) on AWS EC2</li>
-          <li class="fragment fade-in">Basic terminology and concepts for AI models</li>
-          <li class="fragment fade-in">Discussion: Evaluating AI models in production</li>
+        <h2>🤝 Quick Intro</h2>
+        <div class="two-columns">
+          <div class="column">
+             <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 0;">
+              <img src="../../assets/images/Tulsa AWS User Group.png" alt="Tulsa AWS User Group Logo" style="height: 120px; width: auto;" class="fragment fade-in">
+              <img src="../../assets/images/Tulsa AI Learning Lab logo.png" alt="Tulsa AI Learning Lab Logo" style="height: 140px; width: auto; margin-top: -10px;" class="fragment fade-in">
+              <img src="../../assets/images/techlahoma.png" alt="Techlahoma Logo" style="height: 120px; width: auto; margin-top: -10px;" class="fragment fade-in">
+              <img src="../../assets/images/atlas_school.jpeg" alt="Atlas School Logo" style="height: 100px; width: auto; margin-top: -10px;" class="fragment fade-in">
+            </div>
+          </div>
+          <div class="column">
+            <h3 class="fragment fade-in">Presenter</h3>
+            <div class="fragment fade-up" style="background-color: rgba(255,255,255,0.05); padding: 10px; border-radius: 5px; margin-top: 5px; font-size: 0.8em;">
+              <p><strong>Kaitlin Cort</strong></p>
+              <p style="font-size: 0.85em;">> Software Engineer (AI Platform) @ <a href="https://aidkit.org" target="_blank">AidKit.org</a></p>
+              <p style="font-size: 0.65em;">> Background: data science for public policy, New York State Assembly</p>
+              <p style="font-size: 0.65em;">> New member: <a href="https://tulsaremote.com" target="_blank">Tulsa Remote</a></p>
+              <p style="font-size: 0.65em; margin-top: 8px;">
+                <span style="color: var(--accent-color);">Connect:</span> 
+                kaitlin.cort@owasp.org
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: AGENDA -->
+      <section data-transition="slide">
+        <h2>🚀  What we'll cover: </h2>
+        <ul style="font-size: 0.9em;">
+          <li class="fragment fade-in">Intro to AI & Product Engineering
+            <ul style="font-size: 0.9em;">
+                <li class="fragment fade-in">Basic concepts: Generative AI and LLMs</li>
+                <li class="fragment fade-in">Evolving role of software engineers</li>
+                <li class="fragment fade-in">AI Product Development Lifecycle</li>
+                <li class="fragment fade-in">Evaluating AI models in production</li>
+            </ul>
+          </li>
+          <br>
+          <li class="fragment fade-in"><span style="color: var(--accent-color);">Hands-on:</span> Deploying a tiny LLM (Qwen2.5) on AWS EC2</li>
+          <br>
+          <li class="fragment fade-in"><span style="color: var(--accent-color);">Discussion:</span> Unique challenges for building with AI and opportunities in Tulsa</li>
         </ul>
         <aside class="notes">
           Welcome everyone to our first session. Let's briefly introduce ourselves before diving into today's agenda.
@@ -149,24 +222,107 @@
         </aside>
       </section>
 
+      <!-- NEW SLIDE: INTRO TO GENERATIVE AI AND LLMs - PART 1 -->
+      <section>
+        <h2>Basic Terms & Concepts</h2>
+        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Large Language Models (LLMs):</span> AI systems trained on massive text datasets to understand, summarize, generate, and predict human language.</p>
+        <br>
+        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Embeddings:</span> Numerical representations of words in high-dimensional space.</p>
+        <br>
+        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Tokens:</span> The basic units LLMs process (parts of words or characters).</p>
+      </section>
+
+      <section>
+        <h2>Embeddings</h2>
+        <p style="font-size: 0.8em;" class="fragment fade-up">Coordinates for words and concepts.</p>
+        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+          <img src="../../assets/images/embeddings.png" alt="Alice and Bob personality traints: Vector Embeddings Visualization" style="width: 100%;">
+          <p class="caption">Imagine visualizing Alice and Bob as personalities in a 5-dimensional space.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Embeddings</h2>
+        <p style="font-size: 0.8em;" class="fragment fade-up">Vector composition allows for computation.</p>
+        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+          <img src="../../assets/images/vector_composition.png" alt="King - Man + Woman = Queen: Vector Composition Visualization" style="width: 100%;">
+        </div>
+      </section>
+
+       <section>
+        <h2>Semantic Network</h2>
+        <p style="font-size: 0.8em;" class="fragment fade-up">OpenAI Embeddings: text-embedding-ada-002</p>
+        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+          <img src="../../assets/images/semantic_network.png" alt="Semantic network of all words and concepts." style="width: 75%;">
+        </div>
+      </section>
+
+      <section>
+        <h2>Probability</h2>
+        <p style="font-size: 0.8em;" class="fragment fade-up">Predict the next word (or pixel)</p>
+        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+          <img src="../../assets/images/prediction.png" alt="How LLM's predict the next word." style="width: 45%;">
+        </div>
+      </section>
+     
+      <section>
+        <h2>Basic Terms & Concepts</h2>
+        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Generative AI:</span> A subset of artificial intelligence that uses sophisticated algorithms and machine learning models to create novel content, such as text, images, videos, music, or voices.</p>
+        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+          <img src="../../assets/images/AI_venndiagram.png" alt="Relationship between AI disciplines and where Generative AI fits" style="width: 70%; max-width: 600px;">
+          <p class="caption">Relationship between AI disciplines and where Generative AI fits</p>
+        </div>
+    </section>
+
+     <section>
+        <h2>History of A.I.</h2>
+        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+          <img src="../../assets/images/HistoryOfAI.png" alt="Timeline of AI research and development" style="width: 100%;">
+          <p class="caption">Timeline of AI research and development</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>This A.I. Moment</h2>
+        <p style="font-size: 0.65em;" class="fragment fade-up"><span style="color: var(--accent-color);">Computational Power:</span> Hardware acceleration - Graphical Processing Units (GPU) & Tensor Processing Units (TPU) makes training very large models feasible.</p>
+        <br>
+        <p style="font-size: 0.65em;" class="fragment fade-up"><span style="color: var(--accent-color);">Availability of Data:</span> Decades of "big data" from social media and web allows models to learn patterns and relationships.</p>
+        <br>
+        <p style="font-size: 0.65em;" class="fragment fade-up"><span style="color: var(--accent-color);">Deep Learning Renaissance:</span> Transformer architecutre (2017) attention mechanisms allow models to focus on relevant parts of input data, for scalable and efficient ways to handle sequences.</p>
+        <br>
+        <p class="caption">Bigger is in fact, better.</p>
+    </section>
+
+     <section>
+        <h2>Changing Role of Software Engineers</h2>
+        <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">🤖 <span style="color: var(--accent-color);">AI Integration:</span> Developing architectures that effectively combine traditional code with AI capabilities while maintaining reliability.</p>
+        <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">💡 <span style="color: var(--accent-color);">Product-Focused Engineering:</span> Understanding user needs and business value becomes critical as fewer engineers are needed to build a product.</p>
+        <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">🔄 <span style="color: var(--accent-color);">Adaptive System Design:</span> Creating flexible architectures that can evolve with rapidly improving AI capabilities and changing user expectations.</p>
+        <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">🛡️ <span style="color: var(--accent-color);">Evaluation & Guardrails:</span> Creating robust testing frameworks and safety measures for systems that may exhibit unpredictable behaviors.</p>
+        <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">📊 <span style="color: var(--accent-color);">Data Engineering:</span> Growing emphasis on high-quality data pipelines, synthetic data generation, and efficient vector storage solutions.</p>
+        <p class="caption">Software engineers are becoming AI orchestrators and product strategists, rather than just code developers.</p>
+    </section>
+      
+
       <!-- SLIDE 3: WHAT IS AI PRODUCT ENGINEERING -->
       <section>
         <h2>What is AI Product Engineering?</h2>
         <div class="two-columns">
           <div class="column">
-            <h3 class="fragment fade-in">Key Principles</h3>
-            <ul>
-              <li class="fragment fade-up">User-centered design</li>
-              <li class="fragment fade-up">Technical feasibility</li>
-              <li class="fragment fade-up">Business viability</li>
-              <li class="fragment fade-up">Ethical considerations</li>
-              <li class="fragment fade-up">Iterative development</li>
+            <h3 class="fragment fade-in">Key Stages</h3>
+            <ul style="font-size: 0.7em;">
+              <li class="fragment fade-up">1. <span style="color: var(--accent-color);">User-centered design:</span> problem identification & requirements analysis</li>
+              <li class="fragment fade-up">2. <span style="color: var(--accent-color);">Data collection</span> & Preparation</li>
+              <li class="fragment fade-up">3. <span style="color: var(--accent-color);">Model training</span> & Development</li>
+              <li class="fragment fade-up">4. <span style="color: var(--accent-color);">Model evaluation:</span> Testing and Refinement</li>
+              <li class="fragment fade-up">5. <span style="color: var(--accent-color);">Deployment</span> & Integration</li>
+              <li class="fragment fade-up">6. <span style="color: var(--accent-color);">Monitoring</span> & Improvement</li>
             </ul>
           </div>
           <div class="column">
             <div class="fragment fade-in">
-              <img src="https://placeholder.pics/svg/450x300/DEDEDE/555555/AI%20Product%20Lifecycle" alt="AI Product Lifecycle">
-              <p class="caption">The AI Product Development Lifecycle</p>
+              <img src="../../assets/images/ai_lifecycle.png" alt="AI Product Lifecycle">
+              <p class="caption">The AI Development Lifecycle</p>
             </div>
           </div>
         </div>
@@ -411,7 +567,7 @@ User → API Gateway → Lambda → EC2 with Ollama → S3 Storage
       </section>
 
       <!-- SLIDE 14: WORKSHOP TIME -->
-      <section data-background="#336699" data-background-transition="zoom">
+      <section data-background="#6a2ea0" data-background-transition="zoom">
         <h1 style="color: white;">Workshop Time!</h1>
         <p style="color: white; font-size: 1.5em;">Let's deploy our first AI model together</p>
         <div class="fragment fade-in" style="margin-top: 50px; color: white;">
@@ -447,7 +603,7 @@ User → API Gateway → Lambda → EC2 with Ollama → S3 Storage
       </section>
 
       <!-- SLIDE 16: THANK YOU -->
-      <section data-background-gradient="linear-gradient(to bottom, #336699, #66a3ff)">
+      <section data-background-gradient="linear-gradient(to bottom, #6a2ea0, #9d71c7)">
         <h1 style="color: white;">Thank You!</h1>
         <div style="color: white; margin-top: 40px;">
           <p class="fragment fade-in">Questions? Let's discuss!</p>
