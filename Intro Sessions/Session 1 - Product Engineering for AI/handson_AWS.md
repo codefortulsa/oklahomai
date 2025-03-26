@@ -91,6 +91,8 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
    ollama run qwen2:0.5b "Explain the concept of product engineering for AI in 3 sentences"
    ```
 
+   ![Run Qwen2:0.5b](https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/step5.png)
+
 ## 5. Running Ollama as a Service
 
 1. **Start Ollama service**
