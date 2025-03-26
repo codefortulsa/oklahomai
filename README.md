@@ -11,7 +11,7 @@ We will be hosting in-person sessions in Tulsa with folks from [Techlahoma](http
 
 Our volunteer-led series begins with two introductory session at Atlas School:
 
-- **Session 1**: 🚀 Product engineering for AI applications
+- **Session 1**: 🚀 [Product engineering for AI applications](https://www.meetup.com/tulsa-aws/events/306705603/)
     1. Hands-on deployment of a tiny LLM (Qwen2.5) on an EC2 instance in AWS (Free Tier), using Ollama
     2. Basic terminology and concepts in training, deploying, and evaluating AI models in production
 
