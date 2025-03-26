@@ -15,8 +15,8 @@ Our volunteer-led series begins with two introductory session at Atlas School:
     2. Basic terminology and concepts in training, deploying, and evaluating AI models in production
 
 - **Session 2**: 🌩️ Language Models on the Cloud and Edge
-    1. Part 1:  Hands-on - Leveraging AWS Bedrock for simplified AI orchestration
-    2. Part 2:  Hands-on - Intro to EdgeAI and deploying a tiny LLM on a Raspberry Pi with environmental sensors
+    1. Hands-on - Leveraging AWS Bedrock for simplified AI orchestration
+    2. Hands-on - Intro to EdgeAI and deploying a tiny LLM on a Raspberry Pi with environmental sensors
 
 You can find materials for these two sessions in the repo directory under [Intro Sessions](/Intro%20Sessions).
 
