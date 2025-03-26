@@ -11,7 +11,7 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
 2. **Launch an EC2 Instance**
    - Navigate to EC2 dashboard
    - Click "Launch Instance"
-   - **Name**: `ollama-qwen-instance` (or your preferred name)
+   - **Name**: `ollama-tiny-llm` (or your preferred name)
    - **AMI**: Ubuntu Server 22.04 LTS (free tier eligible)
    - **Architecture**: Choose x86 (64-bit) architecture, not ARM
    
@@ -49,24 +49,23 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
      ```
    - On Windows, use PuTTY or Windows Terminal
 
-## 3. Installing Ollama
+## 3. Create swap space (8GB recommended)
 
-1. **Update system packages**
-   ```bash
-   sudo apt update && sudo apt upgrade -y
-   ```
+```bash
+   sudo fallocate -l 8G /swapfile
+   sudo chmod 600 /swapfile
+   sudo mkswap /swapfile
+   sudo swapon /swapfile
+```
 
-2. **Install required dependencies**
-   ```bash
-   sudo apt install -y curl wget
-   ```
+## 4. Installing Ollama
 
-3. **Install Ollama**
+**Install Ollama**
    ```bash
    curl -fsSL https://ollama.com/install.sh | sh
    ```
 
-4. **Verify installation**
+**Verify installation**
    ```bash
    ollama --version
    ```
@@ -74,26 +73,24 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
 ![Install Ollama](https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/step4.png)
 
 
-## 4. Setting Up and Running Qwen 2.1
+## 5. Setting Up and Running a Small LLM
 
-1. **Pull the Qwen 2.1 model**
+**Pull and run the smallest smollm2 model**
+```bash
+ollama pull smollm2:135m
+ollama run smollm2:135m
+```
+Test the model with a prompt!
+
+**Pull and run the smallestQwen 2.1 model**
    ```bash
-   # For free tier (faster but less capable)
-   # ollama pull qwen2:0.5b
-
-   # For 7B parameter model (recommended for t2.large)
-   ollama pull qwen2:7b
+   ollama pull qwen2:0.5b
+   ollama run qwen2:0.5b
    ```
-   This will download and set up the model (may take several minutes)
+Test the model with a prompt!
 
-2. **Test the model with a simple prompt**
-   ```bash
-   ollama run qwen2:0.5b "Explain the concept of product engineering for AI in 3 sentences"
-   ```
 
-   ![Run Qwen2:0.5b](https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/step5.png)
-
-## 5. Running Ollama as a Service
+## 6. Running Ollama as a Service
 
 1. **Start Ollama service**
    ```bash
@@ -110,7 +107,7 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
    sudo systemctl status ollama
    ```
 
-## 6. Using the Ollama API
+## 7. Using the Ollama API
 
 Ollama provides a REST API that you can use for more advanced usage:
 
@@ -127,21 +124,6 @@ Ollama provides a REST API that you can use for more advanced usage:
    ```bash
    curl http://localhost:11434/api/tags
    ```
-
-## 7. Performance Optimization
-
-1. **Monitor memory usage**
-   ```bash
-   watch -n 1 free -h
-   ```
-
-2. **Create swap space if needed**
-   ```bash
-   sudo fallocate -l 8G /swapfile
-   sudo chmod 600 /swapfile
-   sudo mkswap /swapfile
-   sudo swapon /swapfile
-   echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
    ```
 
 ## 8. Running Ollama in the Background
@@ -152,13 +134,7 @@ If you want to keep Ollama running after disconnecting:
 nohup ollama serve > ollama.log 2>&1 &
 ```
 
-## 9. Basic Prompt Examples
-
-Try these prompts to test your Qwen 2.1 model:
-
-
-
-## 10. Cleaning Up
+## 9.  Cleaning Up
 
 When you're done, remember to stop or terminate your EC2 instance to avoid unnecessary charges:
 
