@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Engineering for AI Applications | Oklahom.AI</title>
+  
+  <!-- RevealJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.min.css" id="theme">
+  
+  <!-- Highlight.js for code syntax highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.min.css">
+  
+  <!-- Custom styles -->
+  <style>
+    :root {
+      --primary-color: #336699;
+      --secondary-color: #669933;
+      --background-color: #f8f8f8;
+      --text-color: #333;
+    }
+    
+    .reveal {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-color);
+    }
+    
+    .reveal .slides {
+      text-align: left;
+    }
+    
+    .reveal h1, .reveal h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.5em;
+    }
+    
+    .reveal h1 {
+      font-size: 2.5em;
+      text-transform: none;
+    }
+    
+    .reveal h2 {
+      font-size: 1.8em;
+      text-transform: none;
+    }
+    
+    .reveal ul, .reveal ol {
+      display: block;
+      margin-left: 2em;
+    }
+    
+    .two-columns {
+      display: flex;
+      width: 100%;
+    }
+    
+    .column {
+      flex: 1;
+      padding: 0 10px;
+    }
+    
+    .reveal pre {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    
+    .reveal code {
+      font-family: 'Fira Code', monospace;
+      padding: 0.2em 0.4em;
+      background-color: rgba(0,0,0,0.05);
+      border-radius: 3px;
+    }
+    
+    .logo {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 100px;
+      opacity: 0.7;
+    }
+    
+    .footnote {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.6em;
+      opacity: 0.7;
+    }
+    
+    .highlight {
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+    
+    .caption {
+      font-size: 0.7em;
+      color: #666;
+      text-align: center;
+      margin-top: 0.5em;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- SLIDE 1: TITLE -->
+      <section data-transition="zoom">
+        <h1>🧠 Product Engineering for AI Applications</h1>
+        <h3>Oklahom.AI - Tulsa's AI Learning Lab</h3>
+        <p><em>Session 1: Introduction to AI Product Engineering</em></p>
+        <div style="margin-top: 2em;">
+          <img src="../../assets/images/Tulsa AI Learning Lab logo.png" alt="Tulsa AI Learning Lab Logo" style="height: 200px;">
+        </div>
+      </section>
+
+      <!-- SLIDE 2: WELCOME -->
+      <section data-transition="slide">
+        <h2>Welcome to Session 1! 👋</h2>
+        <p>Today's Agenda:</p>
+        <ul>
+          <li class="fragment fade-in">Introduction to AI Product Engineering</li>
+          <li class="fragment fade-in">Hands-on: Deploying a tiny LLM (Qwen2.5) on AWS EC2</li>
+          <li class="fragment fade-in">Basic terminology and concepts for AI models</li>
+          <li class="fragment fade-in">Discussion: Evaluating AI models in production</li>
+        </ul>
+        <aside class="notes">
+          Welcome everyone to our first session. Let's briefly introduce ourselves before diving into today's agenda.
+          Make sure everyone has AWS accounts set up before the hands-on portion begins.
+        </aside>
+      </section>
+
+      <!-- SLIDE 3: WHAT IS AI PRODUCT ENGINEERING -->
+      <section>
+        <h2>What is AI Product Engineering?</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="fragment fade-in">Key Principles</h3>
+            <ul>
+              <li class="fragment fade-up">User-centered design</li>
+              <li class="fragment fade-up">Technical feasibility</li>
+              <li class="fragment fade-up">Business viability</li>
+              <li class="fragment fade-up">Ethical considerations</li>
+              <li class="fragment fade-up">Iterative development</li>
+            </ul>
+          </div>
+          <div class="column">
+            <div class="fragment fade-in">
+              <img src="https://placeholder.pics/svg/450x300/DEDEDE/555555/AI%20Product%20Lifecycle" alt="AI Product Lifecycle">
+              <p class="caption">The AI Product Development Lifecycle</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: UNIQUE CHALLENGES -->
+      <section>
+        <h2>Unique Challenges in AI Product Engineering</h2>
+        <div class="fragment fade-in">
+          <div class="two-columns">
+            <div class="column">
+              <h3>Technical Challenges</h3>
+              <ul>
+                <li>Data quality and availability</li>
+                <li>Model performance and reliability</li>
+                <li>Compute resources and costs</li>
+                <li>Deployment and scaling</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h3>Ethical Challenges</h3>
+              <ul>
+                <li>Bias and fairness</li>
+                <li>Transparency and explainability</li>
+                <li>Privacy concerns</li>
+                <li>Responsible AI usage</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: HANDS-ON INTRO -->
+      <section data-background-color="#f5f5f5">
+        <h2>Hands-on Session: Deploying a Tiny LLM</h2>
+        <div class="fragment fade-in">
+          <p>Today we'll deploy <span class="highlight">Qwen2.5</span>, a powerful yet efficient language model</p>
+          <p>We'll use:</p>
+          <ul>
+            <li>AWS EC2 (Free Tier)</li>
+            <li>Ollama - Open source tool for running models locally</li>
+            <li>Basic terminal commands</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: QWEN2.5 DETAILS -->
+      <section>
+        <h2>Qwen2.5 on EC2 with Ollama</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="fragment fade-in">What You'll Learn</h3>
+            <ul>
+              <li class="fragment fade-up">Setting up an EC2 instance (Free Tier)</li>
+              <li class="fragment fade-up">Installing Ollama</li>
+              <li class="fragment fade-up">Deploying Qwen2.5 model</li>
+              <li class="fragment fade-up">Testing your model</li>
+              <li class="fragment fade-up">Basic prompt engineering</li>
+            </ul>
+          </div>
+          <div class="column fragment fade-in">
+            <pre><code class="bash" data-trim data-noescape>
+# Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Pull the Qwen2.5 model
+ollama pull qwen2:7b
+
+# Run the model
+ollama run qwen2:7b
+            </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: EC2 SETUP -->
+      <section>
+        <h2>Step 1: Setting Up EC2</h2>
+        <ol>
+          <li class="fragment fade-up">Log in to AWS Console and navigate to EC2</li>
+          <li class="fragment fade-up">Launch a new instance (t2.large recommended)</li>
+          <li class="fragment fade-up">Select Ubuntu 22.04 LTS as your AMI</li>
+          <li class="fragment fade-up">Configure security group to allow SSH access</li>
+          <li class="fragment fade-up">Create or use an existing key pair</li>
+          <li class="fragment fade-up">Launch instance and connect via SSH</li>
+        </ol>
+        <div class="fragment fade-in">
+          <pre><code class="bash" data-trim data-noescape>
+ssh -i your-key.pem ubuntu@your-instance-public-ip
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: OLLAMA INSTALLATION -->
+      <section>
+        <h2>Step 2: Installing Ollama</h2>
+        <div class="fragment fade-in">
+          <pre><code class="bash" data-trim data-noescape>
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install dependencies
+sudo apt install -y curl
+
+# Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Verify installation
+ollama --version
+          </code></pre>
+        </div>
+        <p class="fragment fade-in">Ollama provides a simple API and CLI for running LLMs locally</p>
+      </section>
+
+      <!-- SLIDE 9: DEPLOYING QWEN -->
+      <section>
+        <h2>Step 3: Deploying Qwen2.5</h2>
+        <div class="fragment fade-in">
+          <pre><code class="bash" data-trim data-noescape>
+# Pull the Qwen2.5 model (7B parameter version)
+ollama pull qwen2:7b
+
+# This will download ~4GB of data, be patient!
+          </code></pre>
+        </div>
+        <div class="fragment fade-in">
+          <h3>About Qwen2.5</h3>
+          <ul>
+            <li>Developed by Alibaba Cloud</li>
+            <li>7B parameters (compact yet powerful)</li>
+            <li>Good performance-to-size ratio</li>
+            <li>Supports multiple languages</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: INTERACTING WITH MODEL -->
+      <section>
+        <h2>Step 4: Interacting with the Model</h2>
+        <div class="fragment fade-in">
+          <pre><code class="bash" data-trim data-noescape>
+# Start a chat session with the model
+ollama run qwen2:7b
+
+# Try these prompts:
+> Explain the concept of transfer learning in AI
+> Write a short poem about Tulsa
+> How would you implement a recommendation system?
+          </code></pre>
+        </div>
+        <div class="fragment fade-in">
+          <p>You can also use the Ollama API to integrate with applications:</p>
+          <pre><code class="bash" data-trim data-noescape>
+# Start the Ollama server
+ollama serve
+
+# In another terminal, use curl to query the API
+curl -X POST http://localhost:11434/api/generate -d '{
+  "model": "qwen2:7b",
+  "prompt": "What is machine learning?"
+}'
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: AI MODEL TERMINOLOGY -->
+      <section>
+        <h2>AI Model Terminology</h2>
+        <table class="fragment fade-in">
+          <tr>
+            <th>Term</th>
+            <th>Definition</th>
+          </tr>
+          <tr class="fragment fade-up">
+            <td><strong>LLM</strong></td>
+            <td>Large Language Model, a type of AI model trained on vast text data</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <td><strong>Inference</strong></td>
+            <td>Process of using a trained model to make predictions</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <td><strong>Token</strong></td>
+            <td>Basic unit of text processing in LLMs (word parts or characters)</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <td><strong>Quantization</strong></td>
+            <td>Process of reducing model precision to improve performance</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <td><strong>Context Window</strong></td>
+            <td>The amount of text a model can consider at once</td>
+          </tr>
+          <tr class="fragment fade-up">
+            <td><strong>Fine-tuning</strong></td>
+            <td>Adapting a pre-trained model for specific tasks</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- SLIDE 12: MODEL EVALUATION -->
+      <section>
+        <h2>Model Evaluation in Production</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="fragment fade-in">Metrics to Consider</h3>
+            <ul>
+              <li class="fragment fade-up">Accuracy/quality of outputs</li>
+              <li class="fragment fade-up">Latency and throughput</li>
+              <li class="fragment fade-up">Cost per inference</li>
+              <li class="fragment fade-up">Hallucination rate</li>
+              <li class="fragment fade-up">Ethical considerations</li>
+              <li class="fragment fade-up">User satisfaction</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3 class="fragment fade-in">Monitoring Tools</h3>
+            <ul>
+              <li class="fragment fade-up">CloudWatch metrics</li>
+              <li class="fragment fade-up">Custom dashboards</li>
+              <li class="fragment fade-up">A/B testing</li>
+              <li class="fragment fade-up">User feedback loops</li>
+              <li class="fragment fade-up">Regression testing</li>
+              <li class="fragment fade-up">Prompt evaluation frameworks</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: ARCHITECTURE OVERVIEW -->
+      <section data-transition="zoom">
+        <h2>Architecture Overview</h2>
+        <div class="fragment fade-in" style="text-align: center; margin-top: 30px;">
+          <img src="https://placeholder.pics/svg/800x400/DEDEDE/555555/AI%20Application%20Architecture" alt="Architecture Diagram">
+          <p class="caption">Simple AI Application Architecture with EC2 and Ollama</p>
+        </div>
+        <div class="fragment fade-in">
+          <pre><code class="text" data-trim data-noescape>
+User → API Gateway → Lambda → EC2 with Ollama → S3 Storage
+          </code></pre>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: WORKSHOP TIME -->
+      <section data-background="#336699" data-background-transition="zoom">
+        <h1 style="color: white;">Workshop Time!</h1>
+        <p style="color: white; font-size: 1.5em;">Let's deploy our first AI model together</p>
+        <div class="fragment fade-in" style="margin-top: 50px; color: white;">
+          <p>Follow along with the instructor</p>
+          <p>Ask questions at any time</p>
+          <p>Collaborate with your neighbors</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 15: RESOURCES -->
+      <section>
+        <h2>Resources & Next Steps</h2>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="fragment fade-in">Resources</h3>
+            <ul>
+              <li class="fragment fade-up"><a href="https://ollama.com/docs" target="_blank">Ollama Documentation</a></li>
+              <li class="fragment fade-up"><a href="https://docs.aws.amazon.com/ec2/" target="_blank">AWS EC2 Documentation</a></li>
+              <li class="fragment fade-up"><a href="https://huggingface.co/Qwen/Qwen2-7B" target="_blank">Qwen2 Model Card</a></li>
+              <li class="fragment fade-up"><a href="https://huggingface.co/docs/evaluate/llm_evaluation" target="_blank">LLM Evaluation Guide</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3 class="fragment fade-in">Coming in Session 2</h3>
+            <ul>
+              <li class="fragment fade-up">AWS Bedrock for simplified AI orchestration</li>
+              <li class="fragment fade-up">Edge AI deployment on Raspberry Pi</li>
+              <li class="fragment fade-up">Environmental sensor integration</li>
+              <li class="fragment fade-up">RAG patterns for knowledge augmentation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 16: THANK YOU -->
+      <section data-background-gradient="linear-gradient(to bottom, #336699, #66a3ff)">
+        <h1 style="color: white;">Thank You!</h1>
+        <div style="color: white; margin-top: 40px;">
+          <p class="fragment fade-in">Questions? Let's discuss!</p>
+          <p class="fragment fade-in">Join us on the #oklahom-ai channel on Slack</p>
+          <p class="fragment fade-in" style="margin-top: 60px;">See you at Session 2!</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- RevealJS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.min.js"></script>
+  
+  <script>
+    // Initialize RevealJS
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      controls: true,
+      progress: true,
+      center: false,
+      plugins: [
+        RevealNotes,
+        RevealMarkdown,
+        RevealHighlight,
+        RevealMath
+      ],
+      // Configure options
+      // More options: https://revealjs.com/config/
+      width: 1200,
+      height: 700,
+      margin: 0.1,
+      minScale: 0.2,
+      maxScale: 1.5
+    });
+  </script>
+</body>
+</html>
