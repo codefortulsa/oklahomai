@@ -1,8 +1,8 @@
-# Hands-on Guide: Setting Up Qwen 2.1 on AWS EC2 with Ollama
+# Hands-on Guide: Setting Up LLMs on AWS EC2 with Ollama
 
-This guide walks you through setting up and running Qwen 2.1, a small but efficient LLM, on a free tier AWS EC2 instance using Ollama.
+This guide walks you through setting up and running SmolLm2 or Qwen 2.1, small but efficient LLMs, on a free tier AWS EC2 instance using Ollama.
 
-## 1. Creating an EC2 Instance
+## 1. Create an EC2 Instance.
 
 1. **Log in to AWS Console**
    - Go to https://aws.amazon.com/console/
@@ -35,7 +35,7 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
  5.  - **Configure Storage**: 30GB gp3 (free tier maximum, 30GB+ recommended)
    - Click "Launch Instance"
 
-## 2. Connecting to Your Instance
+## 2. Connect to Your Instance
 
 1. **Find your instance public IP**
    - On EC2 dashboard, select your instance
@@ -49,7 +49,7 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
      ```
    - On Windows, use PuTTY or Windows Terminal
 
-## 3. Create swap space (8GB recommended)
+## 3. Create swap space (8GB recommended on free tier)
 
 ```bash
    sudo fallocate -l 8G /swapfile
@@ -58,7 +58,7 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
    sudo swapon /swapfile
 ```
 
-## 4. Installing Ollama
+## 4. Install Ollama
 
 **Install Ollama**
    ```bash
@@ -73,7 +73,7 @@ This guide walks you through setting up and running Qwen 2.1, a small but effici
 ![Install Ollama](https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/step4.png)
 
 
-## 5. Setting Up and Running a Small LLM
+## 5. Set Up and Running a Small LLM
 
 **Pull and run the smallest smollm2 model**
 ```bash
@@ -87,10 +87,22 @@ Test the model with a prompt!
    ollama pull qwen2:0.5b
    ollama run qwen2:0.5b
    ```
-Test the model with a prompt!
+
+## 6.  Clean Up
+
+When you're done, remember to stop or terminate your EC2 instance to avoid unnecessary charges:
+
+1. In the EC2 dashboard, select your instance
+2. Choose "Instance state" and select "Stop" or "Terminate"
+
+**Note**: Stopping the instance will preserve your data but still incur storage costs. Terminating the instance will delete all data.
+
+----
 
 
-## 6. Running Ollama as a Service
+# Alternatives
+
+## A. Run Ollama as a Service
 
 1. **Start Ollama service**
    ```bash
@@ -107,7 +119,7 @@ Test the model with a prompt!
    sudo systemctl status ollama
    ```
 
-## 7. Using the Ollama API
+## B. Use the Ollama API
 
 Ollama provides a REST API that you can use for more advanced usage:
 
@@ -124,21 +136,11 @@ Ollama provides a REST API that you can use for more advanced usage:
    ```bash
    curl http://localhost:11434/api/tags
    ```
-   ```
 
-## 8. Running Ollama in the Background
+## C. Run Ollama in the Background
 
 If you want to keep Ollama running after disconnecting:
 
 ```bash
 nohup ollama serve > ollama.log 2>&1 &
 ```
-
-## 9.  Cleaning Up
-
-When you're done, remember to stop or terminate your EC2 instance to avoid unnecessary charges:
-
-1. In the EC2 dashboard, select your instance
-2. Choose "Instance state" and select "Stop" or "Terminate"
-
-**Note**: Stopping the instance will preserve your data but still incur storage costs. Terminating the instance will delete all data.
