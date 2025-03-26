@@ -4,7 +4,8 @@
 
 This initiative is sponsored by the [Tulsa AWS User Group Meetup](https://www.meetup.com/tulsa-aws) at [Gradient](https://www.joingradient.com/) and the [Atlas School](https://www.atlasschool.com/), with the goal of making AI development more accessible to beginners in the Tulsa tech community. 🌟
 
-We will be joining forces with the new [Oklahom.AI](https://oklahom.ai/) group in Oklahoma City for virtual sessions.
+We will be joining forces with the new [Oklahom.AI](https://oklahom.ai/) group in Oklahoma City for virtual sessions. We will also be hosting in-person sessions in Tulsa, with folks from [Techlahoma](https://www.techlahoma.org/) and Code for Tulsa / [Tulsa CityCamp](https://citycamp.com/).
+
 
 ## Atlas School & AWS User Group 🤝
 
@@ -21,7 +22,6 @@ Our volunteer-led series begins with two introductory session at Atlas School:
 You can find materials for these two sessions in the repo directory under [Intro Sessions](/Intro%20Sessions).
 
 **We welcome beginners and experienced developers of all levels, and try our best to make the learning experience as accessible as possible.** 
-
 
 ## AI Learning Lab Sessions 🧬
 
