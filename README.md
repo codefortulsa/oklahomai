@@ -25,11 +25,11 @@ You can find materials for these two sessions in the repo directory under [Intro
 
 ## AI Learning Lab Sessions 🧬
 
-Following these initial sessions, we will host bi-weekly (in-person and virtual) meetings featuring new topics, practical exercises, and collaborative projects. All materials, code samples, and documentation will be maintained in this repository for ongoing reference and learning. 🛠️
+* 🛠️  Following these initial sessions, we will host bi-weekly (in-person and virtual) meetings featuring new topics, practical exercises, and collaborative projects. All materials, code samples, and documentation will be maintained in this repository for ongoing reference and learning. 
 
-🚀 The goal is to keep you accountable to your learning goals, and provide a supportive community to help you build and iterate quickly on your ideas. 
+* 🚀  The goal is to keep you accountable to your learning goals, and provide a supportive community to help you build and iterate quickly on your ideas. 
 
-If you follow the study group's week-by-week self-study schedule with guided review sessions, you will be prepared to take the [AWS AI Practitioner Certification Exam](https://www.geeksforgeeks.org/aws-certified-ai-practitioner-aif-c01/) in 2025. You may also choose to opt out and focus on building projects.
+* ⭐  If you follow the study group's week-by-week self-study schedule with guided review sessions, you will be prepared to take the [AWS AI Practitioner Certification Exam](https://www.geeksforgeeks.org/aws-certified-ai-practitioner-aif-c01/) in 2025. You may also choose to opt out and focus on building projects.
 
 ---
 
