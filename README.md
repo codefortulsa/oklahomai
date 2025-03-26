@@ -46,6 +46,6 @@ You can find materials for these two sessions in the repo directory under [Intro
 ### Mission & Values
 _[Work in progress]_
 
-1. We aim to make AI development more accessible to beginners in the Tulsa tech community.
-2. We seek to cultivate a Product Engineer mindset, and provide a supportive community to help you build and iterate quickly on your ideas.
-3. We strive to foster a culture of collaboration and knowledge sharing in the Tulsa tech community, and help Tulsa become the hub for A.I. entrepreneurship in the Heartland.
+1. We aim to make AI development more **accessible to beginners** in the Tulsa tech community.
+2. We seek to cultivate a **Product Engineer** mindset, and provide a supportive community to help you build and iterate quickly on your ideas.
+3. We strive to foster a culture of collaboration and knowledge sharing in the Tulsa tech community, and help Tulsa become the hub for **A.I. entrepreneurship in the Heartland**.
