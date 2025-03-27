@@ -7,7 +7,7 @@ This initiative is sponsored by the [Tulsa AWS User Group Meetup](https://www.me
 We will be hosting in-person sessions in Tulsa with folks from [Techlahoma](https://www.techlahoma.org/) and [Code for Tulsa](https://github.com/codefortulsa) / [Tulsa CityCamp](https://citycamp.com/). We will also be joining forces with the new [Oklahom.AI](https://oklahom.ai/) group in Oklahoma City for virtual sessions. 
 
 
-## Atlas School & AWS User Group 🤝
+## AWS User Group at Gradient & Atlas School 🤝
 
 Our volunteer-led series begins with two introductory session at Atlas School:
 
