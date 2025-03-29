@@ -6,7 +6,6 @@ This initiative is sponsored by the [Tulsa AWS User Group Meetup](https://www.me
 
 We will be hosting in-person sessions in Tulsa with folks from [Techlahoma](https://www.techlahoma.org/) and [Code for Tulsa](https://github.com/codefortulsa) / [Tulsa CityCamp](https://citycamp.com/). We will also be joining forces with the new [Oklahom.AI](https://oklahom.ai/) group in Oklahoma City for virtual sessions. 
 
-
 ## AWS User Group at Gradient & Atlas School 🤝
 
 Our volunteer-led series begins with two introductory session at Atlas School:
@@ -25,11 +24,11 @@ You can find materials for these two sessions in the repo directory under [Intro
 
 ## AI Learning Lab Sessions 🧬
 
-* 🛠️  Following these initial sessions, we will host bi-weekly (in-person and virtual) meetings featuring new topics, practical exercises, and collaborative projects. All materials, code samples, and documentation will be maintained in this repository for ongoing reference and learning. 
+- 🛠️  Following these initial sessions, we will host bi-weekly (in-person and virtual) meetings featuring new topics, practical exercises, and collaborative projects. All materials, code samples, and documentation will be maintained in this repository for ongoing reference and learning. 
 
-* 🚀  The goal is to keep you accountable to your learning goals, and provide a supportive community to help you build and iterate quickly on your ideas. 
+- 🚀  The goal is to keep you accountable to your learning goals, and provide a supportive community to help you build and iterate quickly on your ideas. 
 
-* ⭐  If you follow the study group's week-by-week self-study schedule with guided review sessions, you will be prepared to take the [AWS AI Practitioner Certification Exam](https://www.geeksforgeeks.org/aws-certified-ai-practitioner-aif-c01/) in 2025. You may also choose to opt out and focus on building projects.
+- ⭐  If you follow the study group's week-by-week self-study schedule with guided review sessions, you will be prepared to take the [AWS AI Practitioner Certification Exam](https://www.geeksforgeeks.org/aws-certified-ai-practitioner-aif-c01/) in 2025. You may also choose to opt out and focus on building projects.
 
 ---
 
@@ -42,8 +41,8 @@ You can find materials for these two sessions in the repo directory under [Intro
 </figure>
 </div>
 
-
 ### Mission & Values
+
 _[Work in progress]_
 
 1. We aim to make AI development more **accessible to beginners** in the Tulsa tech community.
