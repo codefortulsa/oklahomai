@@ -4,156 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Engineering for AI Applications | Oklahom.AI</title>
-  
+
   <!-- RevealJS CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.min.css" id="theme">
-  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
   <!-- Highlight.js for code syntax highlighting -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.min.css">
-  
-  <!-- Custom styles -->
-  <style>
-    :root {
-      --primary-color: #4b2e83; /* Dark purple from "TULSA AI" text */
-      --secondary-color: #9d71c7; /* Medium purple from secondary elements */
-      --accent-color: #bb8fcb; /* Light lavender purple from brain circuits */
-      --highlight-color: #7d55c7; /* Medium-dark purple for highlights */
-      --light-purple: #d4bce4; /* Very light purple for subtle backgrounds */
-      --background-color: #121212; /* Dark background */
-      --text-color: #f0f0f0; /* Light text for dark background */
-      --code-background: #2d2d2d; /* Darker background for code */
-    }
-    
-    .reveal {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text-color);
-      background-color: var(--background-color);
-    }
-    
-    .reveal .slides {
-      text-align: left;
-    }
-    
-    .reveal h1 {
-      color: var(--highlight-color); /* Using medium-dark purple for H1 */
-      margin-bottom: 0.5em;
-      font-size: 2.5em;
-      text-transform: none;
-    }
-    
-    .reveal h2 {
-      color: var(--secondary-color); /* Medium purple for H2 */
-      margin-bottom: 0.5em;
-      font-size: 1.8em;
-      text-transform: none;
-    }
-    
-    .reveal ul, .reveal ol {
-      display: block;
-      margin-left: 2em;
-    }
-    
-    .two-columns {
-      display: flex;
-      width: 100%;
-    }
-    
-    .column {
-      flex: 1;
-      padding: 0 10px;
-    }
-    
-    .reveal pre {
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      border-radius: 5px;
-      background-color: var(--code-background);
-    }
-    
-    .reveal code {
-      font-family: 'Fira Code', monospace;
-      padding: 0.2em 0.4em;
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 3px;
-    }
-    
-    .logo {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: 100px;
-      opacity: 0.7;
-    }
-    
-    .footnote {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      font-size: 0.6em;
-      opacity: 0.7;
-    }
-    
-    .highlight {
-      color: var(--accent-color);
-      font-weight: bold;
-    }
-    
-    .caption {
-      font-size: 0.7em;
-      color: #666;
-      text-align: center;
-      margin-top: 0.5em;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    table th, table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-    
-    table th {
-      background-color: #2a2a2a;
-      font-weight: bold;
-    }
-    
-    table tr:nth-child(even) {
-      background-color: #1e1e1e;
-    }
-    
-    /* Links */
-    .reveal a {
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-    
-    .reveal a:hover {
-      color: var(--accent-color);
-      text-decoration: underline;
-    }
-    
-    /* Slide backgrounds */
-    section {
-      background-color: var(--background-color);
-    }
-    
-    /* Additional utility classes for colors */
-    .text-primary { color: var(--primary-color); }
-    .text-secondary { color: var(--secondary-color); }
-    .text-accent { color: var(--accent-color); }
-    .text-highlight { color: var(--highlight-color); }
-    .text-light-purple { color: var(--light-purple); }
-    
-    /* Backgrounds */
-    .bg-primary { background-color: var(--primary-color); color: white; }
-    .bg-secondary { background-color: var(--secondary-color); color: white; }
-    .bg-accent { background-color: var(--accent-color); color: white; }
-    .bg-highlight { background-color: var(--highlight-color); color: white; }
-    .bg-light-purple { background-color: var(--light-purple); color: #333; }
-  </style>
 </head>
 <body>
   <div class="reveal">
@@ -191,7 +51,7 @@
               <p style="font-size: 0.65em;">> Background: data science for public policy, New York State Assembly</p>
               <p style="font-size: 0.65em;">> New member: <a href="https://tulsaremote.com" target="_blank">Tulsa Remote</a></p>
               <p style="font-size: 0.65em; margin-top: 8px;">
-                <span style="color: var(--accent-color);">Connect:</span> 
+                <span style="color: var(--accent-color);">Connect:</span>
                 kaitlin.cort@owasp.org
               </p>
             </div>
@@ -223,62 +83,107 @@
       </section>
 
       <!-- NEW SLIDE: INTRO TO GENERATIVE AI AND LLMs - PART 1 -->
-      <section>
+      <section class="concept-slide" style="min-height: 800px; padding-bottom: 80px;">
         <h2>Basic Terms & Concepts</h2>
-        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Large Language Models (LLMs):</span> AI systems trained on massive text datasets to understand, summarize, generate, and predict human language.</p>
-        <br>
-        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Embeddings:</span> Numerical representations of words in high-dimensional space.</p>
-        <br>
-        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Tokens:</span> The basic units LLMs process (parts of words or characters).</p>
-      </section>
-
-      <section>
-        <h2>Embeddings</h2>
-        <p style="font-size: 0.8em;" class="fragment fade-up">Coordinates for words and concepts.</p>
-        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
-          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/embeddings.png" alt="Alice and Bob personality traints: Vector Embeddings Visualization" style="width: 100%;">
-          <p class="caption">Imagine visualizing Alice and Bob as personalities in a 5-dimensional space.</p>
+        <div class="text-container" style="margin-top: 30px">
+          <p style="font-size: 0.8em" class="fragment fade-up"><span style="color: var(--accent-color);">Large Language Models (LLMs):</span> AI systems trained on massive text datasets to understand, summarize, generate, and predict human language.</p>
+          <p style="font-size: 0.8em" class="fragment fade-up"><span style="color: var(--accent-color);">Embeddings:</span> Numerical representations of words in high-dimensional space.</p>
+          <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Tokens:</span> The basic units LLMs process (parts of words or characters).</p>
+        </div>
+        <div class="responsive-image-container fragment fade-in" style="margin: 0 0 50px 0; padding-bottom: 30px;">
+          <div class="caption-container" style="position: absolute; bottom: -50px; left: 0; right: 0; width: 100%; text-align: center; height: 60px;">
+            <p class="caption" style="position: relative; font-size: 0.85em; margin: 0 auto; padding: 15px 25px; display: inline-block; background-color: rgba(18, 18, 18, 0.8); border-radius: 5px; width: auto; min-width: 40%;">Foundation concepts for understanding AI systems</p>
+          </div>
         </div>
       </section>
 
-      <section>
+      <section class="concept-slide">
         <h2>Embeddings</h2>
-        <p style="font-size: 0.8em;" class="fragment fade-up">Vector composition allows for computation.</p>
-        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
-          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/vector_composition.png" alt="King - Man + Woman = Queen: Vector Composition Visualization" style="width: 100%;">
+        <div class="text-container">
+          <p style="font-size: 0.8em;" class="fragment fade-up">Coordinates for words and concepts.</p>
+        </div>
+        <div class="responsive-image-container fragment fade-in">
+          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/embeddings.png"
+               alt="Alice and Bob personality traints: Vector Embeddings Visualization"
+               class="responsive-image">
+          <div class="caption-container">
+            <p class="caption" style="position: relative; bottom: 0; margin-top: 15px;">Imagine visualizing Alice and Bob as personalities in a 5-dimensional space.</p>
+          </div>
         </div>
       </section>
 
-       <section>
+      <section class="concept-slide" style="min-height: 800px; padding-bottom: 80px;">
+        <h2>Embeddings</h2>
+        <div class="text-container">
+          <p style="font-size: 0.8em;" class="fragment fade-up">Vector composition allows for computation.</p>
+        </div>
+        <div class="responsive-image-container fragment fade-in" style="margin: 0 0 50px 0; padding-bottom: 30px;">
+          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/vector_composition.png"
+               alt="King - Man + Woman = Queen: Vector Composition Visualization"
+               class="responsive-image">
+          <div class="caption-container" style="position: absolute; bottom: -50px; left: 0; right: 0; width: 100%; text-align: center; height: 60px;">
+            <p class="caption" style="position: relative; font-size: 0.85em; margin: 0 auto; padding: 15px 25px; display: inline-block; background-color: rgba(18, 18, 18, 0.8); border-radius: 5px; width: auto; min-width: 40%;">Vector composition relationships in word embeddings</p>
+          </div>
+        </div>
+      </section>
+
+       <section class="concept-slide" style="min-height: 800px; padding-bottom: 80px;">
         <h2>Semantic Network</h2>
-        <p style="font-size: 0.8em;" class="fragment fade-up">OpenAI Embeddings: text-embedding-ada-002</p>
-        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
-          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/semantic_network.png" alt="Semantic network of all words and concepts." style="width: 75%;">
+        <div class="text-container">
+          <p style="font-size: 0.8em;" class="fragment fade-up">OpenAI Embeddings: text-embedding-ada-002</p>
+        </div>
+        <div class="responsive-image-container fragment fade-in" style="margin: 0 0 50px 0; padding-bottom: 30px;">
+          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/semantic_network.png"
+               alt="Semantic network of all words and concepts."
+               class="responsive-image">
+          <div class="caption-container" style="position: absolute; bottom: -50px; left: 0; right: 0; width: 100%; text-align: center; height: 60px;">
+            <p class="caption" style="position: relative; font-size: 0.85em; margin: 0 auto; padding: 15px 25px; display: inline-block; background-color: rgba(18, 18, 18, 0.8); border-radius: 5px; width: auto; min-width: 40%;">Semantic relationships between words in embedding space</p>
+          </div>
         </div>
       </section>
 
-      <section>
+      <section class="concept-slide">
         <h2>Probability</h2>
-        <p style="font-size: 0.8em;" class="fragment fade-up">Predict the next word (or pixel)</p>
-        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
-          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/prediction.png" alt="How LLM's predict the next word." style="width: 45%;">
+        <div class="text-container">
+          <p style="font-size: 0.8em;" class="fragment fade-up">Predict the next word (or pixel)</p>
+        </div>
+        <div class="responsive-image-container fragment fade-in">
+          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/prediction.png"
+               alt="How LLM's predict the next word."
+               class="responsive-image">
+          <div class="caption-container">
+            <p class="caption">LLMs predict the next token based on probability distribution</p>
+          </div>
         </div>
       </section>
-     
-      <section>
-        <h2>Basic Terms & Concepts</h2>
-        <p style="font-size: 0.8em;" class="fragment fade-up"><span style="color: var(--accent-color);">Generative AI:</span> A subset of artificial intelligence that uses sophisticated algorithms and machine learning models to create novel content, such as text, images, videos, music, or voices.</p>
-        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
-          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/AI_venndiagram.png" alt="Relationship between AI disciplines and where Generative AI fits" style="width: 70%; max-width: 600px;">
-          <p class="caption">Relationship between AI disciplines and where Generative AI fits</p>
-        </div>
-    </section>
 
-     <section>
+      <section class="concept-slide" style="min-height: 800px; padding-bottom: 80px;">
+        <h2>Basic Terms & Concepts</h2>
+        <div class="text-container">
+          <p style="font-size: 0.8em; margin-bottom: 15px;" class="fragment fade-up">
+            <span style="color: var(--accent-color);">Generative AI:</span>
+            A subset of artificial intelligence that uses sophisticated algorithms and
+            machine learning models to create novel content, such as text, images, videos,
+            music, or voices.
+          </p>
+        </div>
+        <div class="responsive-image-container fragment fade-in" style="margin: 0 0 50px 0; padding-bottom: 30px;">
+          <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/AI_venndiagram.png"
+               alt="Relationship between AI disciplines and where Generative AI fits"
+               class="responsive-image">
+          <div class="caption-container" style="position: absolute; bottom: -50px; left: 0; right: 0; width: 100%; text-align: center; height: 60px;">
+            <p class="caption" style="position: relative; font-size: 0.85em; margin: 0 auto; padding: 15px 25px; display: inline-block; background-color: rgba(18, 18, 18, 0.8); border-radius: 5px; width: auto; min-width: 40%;">Relationship between AI disciplines and where Generative AI fits</p>
+          </div>
+        </div>
+      </section>
+
+     <section class="concept-slide" style="min-height: 800px; padding-bottom: 80px;">
         <h2>History of A.I.</h2>
-        <div class="fragment fade-in" style="text-align: center; margin: 20px 0;">
+        <div class="responsive-image-container fragment fade-in" style="margin: 0 0 50px 0; padding-bottom: 30px;">
           <img src="https://raw.githubusercontent.com/kaizengrowth/oklahomai/main/assets/images/HistoryOfAI.png" alt="Timeline of AI research and development" style="width: 100%;">
-          <p class="caption">Timeline of AI research and development</p>
+          <div class="caption-container" style="position: absolute; bottom: -50px; left: 0; right: 0; width: 100%; text-align: center; height: 60px;">
+            <p class="caption" style="position: relative; font-size: 0.85em; margin: 0 auto; padding: 15px 25px; display: inline-block; background-color: rgba(18, 18, 18, 0.8); border-radius: 5px; width: auto; min-width: 40%;">Timeline of AI research and development</p>
+          </div>
         </div>
     </section>
 
@@ -290,7 +195,9 @@
         <br>
         <p style="font-size: 0.65em;" class="fragment fade-up"><span style="color: var(--accent-color);">Deep Learning Renaissance:</span> Transformer architecutre (2017) attention mechanisms allow models to focus on relevant parts of input data, for scalable and efficient ways to handle sequences.</p>
         <br>
-        <p class="caption">Bigger is in fact, better.</p>
+        <div class="caption-container">
+          <p class="caption">Bigger is in fact, better.</p>
+        </div>
     </section>
 
      <section>
@@ -329,7 +236,7 @@
                 <p style="font-size: 0.6em;" class="caption fragment fade-in">AI is projected to create $15.7 trillion in global economic value by 2030 (PwC)</p>
             </div>
         </div>
-        
+
     </section>
 
      <section>
@@ -341,7 +248,6 @@
         <p style="font-size: 0.65em; margin-bottom: 8px;" class="fragment fade-up">📊 <span style="color: var(--accent-color);">Data Engineering:</span> Growing emphasis on high-quality data pipelines, synthetic data generation, and efficient vector storage solutions.</p>
         <p class="caption">Software engineers are becoming AI orchestrators and product strategists, rather than just code developers.</p>
     </section>
-      
 
       <!-- SLIDE 3: WHAT IS AI PRODUCT ENGINEERING -->
       <section>
@@ -516,8 +422,6 @@
         </div>
       </section>
 
-     
-
     </div>
   </div>
 
@@ -527,7 +431,7 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.min.js"></script>
-  
+
   <script>
     // Initialize RevealJS
     Reveal.initialize({
