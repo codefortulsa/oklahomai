@@ -1,0 +1,261 @@
+:root {
+  --primary-color: #4b2e83;     /* Dark purple from "TULSA AI" text */
+  --secondary-color: #9d71c7;   /* Medium purple from secondary elements */
+  --accent-color: #bb8fcb;      /* Light lavender purple from brain circuits */
+  --highlight-color: #7d55c7;   /* Medium-dark purple for highlights */
+  --light-purple: #d4bce4;      /* Very light purple for subtle backgrounds */
+  --background-color: #121212;  /* Dark background */
+  --text-color: #f0f0f0;        /* Light text for dark background */
+  --code-background: #2d2d2d;   /* Darker background for code */
+}
+
+.reveal {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1 {
+  color: var(--highlight-color); /* Using medium-dark purple for H1 */
+  margin-bottom: 0.5em;
+  font-size: 2.5em;
+  text-transform: none;
+}
+
+.reveal h2 {
+  color: var(--secondary-color); /* Medium purple for H2 */
+  margin-bottom: 0.5em;
+  font-size: 1.8em;
+  text-transform: none;
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  margin-left: 2em;
+}
+
+.two-columns {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.reveal pre {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  background-color: var(--code-background);
+}
+
+.reveal code {
+  font-family: 'Fira Code', monospace;
+  padding: 0.2em 0.4em;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 3px;
+}
+
+.logo {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 100px;
+  opacity: 0.7;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.6em;
+  opacity: 0.7;
+}
+
+.highlight {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.caption {
+  font-size: 0.75em;
+  color: #999;
+  text-align: center;
+  margin-top: 30px;
+  padding: 8px 15px;
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  z-index: 10;
+}
+
+.caption-container {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  height: 40px;
+  z-index: 10;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  background-color: #2a2a2a;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #1e1e1e;
+}
+
+/* Links */
+.reveal a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Slide backgrounds */
+section {
+  background-color: var(--background-color);
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+.concept-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 50px;
+}
+
+/* Additional utility classes for colors */
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-accent { color: var(--accent-color); }
+.text-highlight { color: var(--highlight-color); }
+.text-light-purple { color: var(--light-purple); }
+
+/* Backgrounds */
+.bg-primary { background-color: var(--primary-color); color: white; }
+.bg-secondary { background-color: var(--secondary-color); color: white; }
+.bg-accent { background-color: var(--accent-color); color: white; }
+.bg-highlight { background-color: var(--highlight-color); color: white; }
+.bg-light-purple { background-color: var(--light-purple); color: #333; }
+
+/* Enhanced responsive image handling */
+.responsive-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  flex-direction: column;
+  margin: 20px 0 100px 0;
+  position: relative;
+}
+
+.responsive-image {
+  height: auto;
+  object-fit: contain;
+}
+
+/* Media queries for responsive layout */
+@media (min-width: 1200px) {
+  .responsive-image-container {
+    margin: 20px 0 100px 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .concept-slide .text-container {
+    margin-bottom: 10px;
+  }
+
+  .concept-slide p {
+    margin-bottom: 10px;
+  }
+
+  .caption {
+    font-size: 0.75em;
+    bottom: -60px;
+    background-color: rgba(18, 18, 18, 0.5);
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+}
+
+/* QHD monitor breakpoint */
+@media (min-width: 1650px) {
+  .responsive-image-container {
+    margin: 0 0 120px 0;
+    padding-bottom: 30px;
+  }
+
+  .caption-container {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    height: 60px;
+  }
+
+  .caption {
+    position: relative;
+    font-size: 0.85em;
+    margin: 0 auto;
+    padding: 15px 25px;
+    display: inline-block;
+    background-color: rgba(18, 18, 18, 0.8);
+    border-radius: 5px;
+    width: auto;
+    min-width: 40%;
+    bottom: auto;
+  }
+
+  section {
+    min-height: 800px;
+    padding-bottom: 80px;
+  }
+
+  .concept-slide {
+    padding-bottom: 80px;
+  }
+}
+
+/* Enhanced text handling for long content */
+.text-container {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  width: 100%;
+}
+
+/* Specific style for concept slides */
+.concept-slide p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
